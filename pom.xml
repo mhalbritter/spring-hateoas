@@ -276,13 +276,6 @@
 
 		<profile>
 			<id>release-train</id>
-			<distributionManagement>
-				<repository>
-					<id>local-deploy-dir</id>
-					<name>Local Directory Deployment</name>
-					<url>file://${env.PWD}/deployment-repository</url>
-				</repository>
-			</distributionManagement>
 			<repositories>
 				<repository>
 					<id>release-train</id>
