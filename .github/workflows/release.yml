@@ -55,9 +55,9 @@ jobs:
       with:
         name: "deployment-repository"
         path: "deployment-repository/**"
-    - name: "Send Callback"
-      id: "send-callback"
-      if: "${{ !cancelled() }}"
-      env:
-        GH_TOKEN: "${{ secrets.GHA_RELEASE_TOKEN }}"
-      run: "gh workflow run resume --repo ${{ inputs.callback }} --ref ${{ inputs.callback-ref }} --field repository=${{ github.repository }} --field run_attempt=${{ github.run_attempt }} --field run_id=${{ github.run_id }}"
+#    - name: "Send Callback"
+#      id: "send-callback"
+#      if: "${{ !cancelled() }}"
+#      env:
+#        GH_TOKEN: "${{ secrets.GHA_RELEASE_TOKEN }}"
+#      run: "gh workflow run resume --repo ${{ inputs.callback }} --ref ${{ inputs.callback-ref }} --field repository=${{ github.repository }} --field run_attempt=${{ github.run_attempt }} --field run_id=${{ github.run_id }}"
