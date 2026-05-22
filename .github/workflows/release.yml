@@ -18,16 +18,8 @@ run-name: "${{ (inputs.action == 'publish-artifacts' && 'Publish Artifacts') || 
         description: "Ref in the callback repository to which a callback should be made upon completion of the release action"
         required: true
         type: "string"
-      release-train-maven-repository-password:
-        description: "Password for authentication with the release train Maven repository"
-        required: true
-        type: "string"
       release-train-maven-repository-url:
         description: "URL of a Maven repository to be used to resolve artifacts when being built as part of a release train"
-        required: true
-        type: "string"
-      release-train-maven-repository-username:
-        description: "Username for authentication with the release train Maven repository"
         required: true
         type: "string"
 permissions:
@@ -53,9 +45,9 @@ jobs:
       uses: "./.github/actions/release"
       with:
         action: "${{ inputs.action }}"
-        release-train-maven-repository-password: "${{ inputs.release-train-maven-repository-password }}"
+        release-train-maven-repository-password: "${{ secrets.RELEASE_TRAIN_MAVEN_REPOSITORY_PASSWORD }}"
         release-train-maven-repository-url: "${{ inputs.release-train-maven-repository-url }}"
-        release-train-maven-repository-username: "${{ inputs.release-train-maven-repository-username }}"
+        release-train-maven-repository-username: "${{ secrets.RELEASE_TRAIN_MAVEN_REPOSITORY_USERNAME }}"
     - name: "Upload Deployment Repository"
       id: "upload-deployment-repository"
       if: "${{ inputs.action == 'publish-artifacts' }}"
