@@ -29,7 +29,7 @@ runs:
         RELEASE_TRAIN_MAVEN_REPOSITORY_URL: ${{ inputs.release-train-maven-repository-url }}
         RELEASE_TRAIN_MAVEN_REPOSITORY_USERNAME: ${{ inputs.release-train-maven-repository-username }}
         RELEASE_TRAIN_MAVEN_REPOSITORY_PASSWORD: ${{ inputs.release-train-maven-repository-password }}
-      run:  ./mvnw --batch-mode --settings release-train-settings.xml clean deploy --activate-profiles release-train -DaltDeploymentRepository="release-train::file://$(pwd)/deployment-repository"
+      run:  ./mvnw --batch-mode --settings release-train-settings.xml clean deploy --activate-profiles release-train -DaltDeploymentRepository="release-train::file://$(pwd)/deployment-repository" -P spring-next
     - name: Test
       if: ${{ inputs.action == 'test' }}
       shell: bash
