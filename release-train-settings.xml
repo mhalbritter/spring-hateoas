@@ -9,4 +9,19 @@
             <password>${env.RELEASE_TRAIN_MAVEN_REPOSITORY_PASSWORD}</password>
         </server>
     </servers>
+
+    <profiles>
+        <profile>
+            <id>release-train</id>
+            <repositories>
+                <repository>
+                    <id>release-train</id>
+                    <url>${env.RELEASE_TRAIN_MAVEN_REPOSITORY_URL}</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
 </settings>
