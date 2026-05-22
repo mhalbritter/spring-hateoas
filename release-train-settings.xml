@@ -10,6 +10,15 @@
         </server>
     </servers>
 
+    <mirrors>
+        <mirror>
+            <!-- This redirects the spring-snapshot repo to the release-train repo -->
+            <id>release-train</id>
+            <mirrorOf>spring-snapshot</mirrorOf>
+            <url>${env.RELEASE_TRAIN_MAVEN_REPOSITORY_URL}</url>
+        </mirror>
+    </mirrors>
+
     <profiles>
         <profile>
             <id>release-train</id>
@@ -17,6 +26,9 @@
                 <repository>
                     <id>release-train</id>
                     <url>${env.RELEASE_TRAIN_MAVEN_REPOSITORY_URL}</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
                     <snapshots>
                         <enabled>true</enabled>
                         <updatePolicy>always</updatePolicy>
