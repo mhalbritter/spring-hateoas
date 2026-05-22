@@ -275,6 +275,26 @@
 		</profile>
 
 		<profile>
+			<id>release-train</id>
+			<distributionManagement>
+				<repository>
+					<id>local-deploy-dir</id>
+					<name>Local Directory Deployment</name>
+					<url>file://${env.PWD}/deployment-repository</url>
+				</repository>
+			</distributionManagement>
+			<repositories>
+				<repository>
+					<id>release-train</id>
+					<url>${env.RELEASE_TRAIN_MAVEN_REPOSITORY_URL}</url>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+
+		<profile>
 
 			<!--
 				Profile to be activated when building the docs artifacts.
